@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/animate.js"></script>
+    <style>
+        ul {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+            float: left;
+            width: 80px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, .2);
+            margin-right: 5px;
+        }
+        
+        .leaf {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            left: 0;
+            top: 0;
+            background-color: skyblue;
+            z-index: -1;
+        }
+        
+        .outer {
+            position: relative;
+            margin: 50px auto;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+            var lis = document.querySelectorAll('li');
+            var leaf = document.querySelector('.leaf');
+            var current = 0;
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].addEventListener('mouseenter', function() {
+                    animate(leaf, this.offsetLeft);
+                });
+                lis[i].addEventListener('mouseleave', function() {
+                    animate(leaf, current);
+
+                });
+                lis[i].addEventListener('click', function() {
+                    animate(leaf, this.offsetLeft);
+                    current = this.offsetLeft
+                });
+            }
+        })
+    </script>
+</head>
+
+<body>
+
+    <div class="outer">
+        <span class="leaf"></span>
+        <ul>
+            <li>
+                1
+
+            </li>
+            <li>
+                2
+            </li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
+</body>
+
+</html>

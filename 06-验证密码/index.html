@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span {
+            font-size: 12px;
+        }
+        
+        .wrong {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    密码: <input type="password" />
+    <span></span>
+    <script>
+        var inp = document.querySelector('input');
+        var span = document.querySelector('span');
+        inp.onfocus = function() {
+            span.innerHTML = '请输入6~16位密码';
+        }
+        inp.onblur = function() {
+            if (this.value.length < 6 || this.value.length > 16) {
+                span.innerHTML = '密码输入位数不正确';
+                span.className = 'wrong';
+            }
+        }
+    </script>
+</body>
+
+</html>

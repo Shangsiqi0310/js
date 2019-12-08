@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border: 1px solid pink;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    <input type="checkbox" class="checkall" />
+                </td>
+                <td>商品</td>
+                <td>价钱</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>iphone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>ipad pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>ipad air</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" />
+                </td>
+                <td>apple watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <script>
+        var boxs = document.querySelector('tbody').querySelectorAll('input');
+        var checkAll = document.querySelector('.checkall');
+        checkAll.onclick = function() {
+            for (var i = 0; i < boxs.length; i++) {
+                boxs[i].checked = this.checked;
+            }
+        }
+        for (var i = 0; i < boxs.length; i++) {
+            boxs[i].onclick = function() {
+                var flag = true;
+                for (var i = 0; i < boxs.length; i++) {
+                    if (boxs[i].checked != true) {
+                        flag = false;
+                        break;
+                    }
+                }
+                checkAll.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

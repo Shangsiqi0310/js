@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            height: 350px;
+            width: 350px;
+            border: 1px solid #eee;
+            position: relative;
+            margin-left: 50px;
+        }
+        
+        .inner {
+            height: 250px;
+            width: 250px;
+            background-color: yellow;
+            opacity: .4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            cursor: move;
+        }
+        
+        .outer {
+            height: 540px;
+            width: 540px;
+            position: absolute;
+            top: 10px;
+            left: 410px;
+            display: none;
+            overflow: hidden;
+        }
+        
+        .outer img {
+            height: 800px;
+            width: 800px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+            var box = document.querySelector('.box');
+            var inner = document.querySelector('.inner');
+            var outer = document.querySelector('.outer');
+            var o_img = outer.querySelector('img');
+
+            box.addEventListener('mouseover', function() {
+                inner.style.display = 'block';
+                outer.style.display = 'block';
+            })
+            box.addEventListener('mouseout', function() {
+                inner.style.display = 'none';
+                outer.style.display = 'none';
+            })
+            box.addEventListener('mousemove', function(e) {
+                var b_x = e.pageX - this.offsetLeft - inner.offsetWidth / 2;
+                var b_y = e.pageY - this.offsetTop - inner.offsetHeight / 2
+                b_maxX = box.offsetWidth - inner.offsetWidth;
+                b_maxY = box.offsetHeight - inner.offsetHeight;
+
+                if (b_y <= 0) {
+                    b_y = 0;
+                } else if (b_y >= b_maxY) {
+                    b_y = b_maxY;
+                }
+                if (b_x <= 0) {
+                    b_x = 0;
+                } else if (b_x >= b_maxX) {
+                    b_x = b_maxX;
+                }
+
+                inner.style.top = b_y + 'px';
+                inner.style.left = b_x + 'px';
+                o_maxX = o_img.offsetWidth - outer.offsetWidth;
+                o_maxY = o_img.offsetHeight - outer.offsetHeight;
+                o_img.style.left = -b_x * o_maxX / b_maxX + 'px';
+                o_img.style.top = -b_y * o_maxY / b_maxY + 'px';
+
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <img src="images/5b1e8e24N8ad4a7fb.jpg" />
+        <div class="inner"></div>
+
+    </div>
+    <div class="outer">
+        <img src="images/5b1e8e24N8ad4a7fb.jpg" />
+    </div>
+</body>
+
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         []

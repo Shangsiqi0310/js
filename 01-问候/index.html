@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/QQ图片20190924102243.jpg" />
+    <div>
+        早上好
+    </div>
+    <script>
+        var imgs = document.querySelector('img');
+        var div = document.querySelector('div');
+        var date = new Date();
+        var h = date.getHours();
+
+        if (h < 12) {
+            imgs.src = "images/QQ图片20190924102243.jpg";
+            div.innerHTML = '早上好';
+        } else if (h < 18) {
+            imgs.src = "images/QQ图片20190924102313.jpg";
+            div.innerHTML = '中午好';
+        } else {
+            imgs.src = "images/yellowman.png";
+            div.innerHTML = '晚上好';
+        }
+    </script>
+</body>
+
+</html>

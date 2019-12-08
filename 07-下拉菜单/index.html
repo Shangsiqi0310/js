@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        dl {
+            font-size: 14px;
+            color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <dl>
+        <dt>111</dt>
+        <dd>222</dd>
+        <dd>333</dd>
+        <dd>444</dd>
+        <dd>555</dd>
+    </dl>
+    <script>
+        var dt = document.querySelector('dt');
+        var dds = document.querySelectorAll('dd');
+        for (var i = 0; i < dds.length; i++) {
+            dds[i].style.display = 'none';
+        }
+        dt.onmouseover = function() {
+            for (var i = 0; i < dds.length; i++) {
+                dds[i].style.display = 'block';
+            }
+        }
+        dt.onmouseout = function() {
+            for (var i = 0; i < dds.length; i++) {
+                dds[i].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function() { //页面加载
+            var but = document.querySelector('button'); //获取button按钮
+            but.addEventListener('click', function() { //点击发送,绑定事件
+                this.disabled = true; //按钮不可再点击
+                var time = 5;
+                var timer = setInterval(function() {
+                    if (time == 0) {
+                        clearInterval(timer);
+                        but.disabled = false;
+                        but.innerHTML = '发送';
+                        time = 5;
+                    } else {
+                        but.innerHTML = '还剩' + time + '秒可点击'; //改变内容每秒,秒数减一
+                        time--;
+                    }
+                }, 1000);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <input type="text" /> <button>发送</button>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+        
+        .head {
+            width: 1000px;
+            height: 100px;
+            background-color: pink;
+            margin: 5px auto;
+        }
+        
+        .banner {
+            width: 1000px;
+            height: 400px;
+            background-color: pink;
+            margin: 5px auto;
+        }
+        
+        .main {
+            width: 1000px;
+            height: 400px;
+            background-color: pink;
+            margin: 5px auto;
+        }
+        
+        .footer {
+            width: 1000px;
+            height: 100px;
+            background-color: pink;
+            margin: 5px auto;
+        }
+        
+        .slider {
+            height: 150px;
+            width: 40px;
+            position: absolute;
+            top: 150px;
+            right: 0;
+            background-color: skyblue;
+            cursor: default;
+        }
+        
+        .return {
+            margin-top: 100px;
+            display: none;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+            var slider = document.querySelector('.slider');
+            var banner = document.querySelector('.banner');
+            var main = document.querySelector('.main');
+            var re = document.querySelector('.return');
+            var bannerTop = banner.offsetTop;
+            var sliderTop = slider.offsetTop;
+            var mainTop = main.offsetTop;
+            document.addEventListener('scroll', function() {
+                if (window.pageYOffset >= bannerTop) {
+                    slider.style.position = 'fixed';
+                    slider.style.top = sliderTop - bannerTop + 'px';
+                } else {
+                    slider.style.position = 'absolute';
+                    slider.style.top = sliderTop + 'px';
+                }
+                if (window.pageYOffset >= mainTop) {
+                    re.style.display = 'block';
+                } else {
+                    re.style.display = 'none';
+                }
+
+            });
+            re.addEventListener('click', function() {
+                animate(window, 0)
+                    // window.scroll(0, 0); //窗口滑动定位
+            });
+
+            function animate(obj, target, callback) { //方法是一点一点移动的
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function() { //定义定时器
+                    var step = (target - window.pageYOffset) / 10; //以其距离父亲的left作为起始点
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    if (window.pageYOffset == target) { //当到达指定地点的时候清楚定时器,如果有回调函数调用回调函数
+
+                        clearInterval(obj.timer);
+                        if (callback) {
+                            callback();
+                        }
+                    }
+                    //obj.style.left = obj.offsetLeft + step + 'px';
+                    window.scroll(0, obj.window.pageYOffset + step);
+
+                }, 20);
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <div class="head">头部</div>
+    <div class="banner">banner部分</div>
+    <div class="main">主体部分</div>
+    <div class="footer">脚部分</div>
+    <div class="slider">
+        <div class="return">返回顶部</div>
+    </div>
+</body>
+
+</html>

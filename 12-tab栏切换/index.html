@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li {
+            list-style: none;
+            float: left;
+            margin: 10px;
+        }
+        
+        ul {
+            overflow: hidden;
+        }
+        
+        .current {
+            background-color: red;
+            color: #fff;
+        }
+        
+        div {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="current">商品介绍</li>
+        <li>规格与包装</li>
+        <li>售后保障</li>
+        <li>商品评价</li>
+    </ul>
+    <div style="display:block"> 商品介绍</div>
+    <div>规格与包装</div>
+    <div>售后保障</div>
+    <div>商品评价</div>
+    <script>
+        var lis = document.querySelectorAll('li');
+        var divs = document.querySelectorAll('div');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i);
+            lis[i].onclick = function() {
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = '';
+                    divs[i].style.display = 'none';
+                }
+                this.className = 'current';
+                divs[this.getAttribute('index')].style.display = 'block';
+
+            }
+        }
+    </script>
+</body>
+
+</html>

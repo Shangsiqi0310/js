@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //加载页面之后看localStorage存不存在username如果存在就把值放入框中,并勾选上复选框
+        window.addEventListener('load', function() {
+            var username = document.getElementById('username');
+            var remeber = document.getElementById('remeber');
+            if (localStorage.getItem('username')) {
+                username.value = localStorage.getItem('username');
+                remeber.checked = true;
+            }
+            //当复选框发生改变时判断是否为选中状态,选中设置值未选中移除值
+            remeber.addEventListener('change', function() {
+                if (this.checked) {
+                    localStorage.setItem('username', username.value);
+                } else {
+                    localStorage.removeItem('username');
+                }
+            });
+            username.addEventListener('blur', function() {
+                if (username.value != localStorage.getItem('username') && remeber.checked) {
+                    localStorage.setItem('username', username.value);
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    用户名: <input type="text" id="username" />
+    <input type="checkbox" id="remeber" />记住用户名
+</body>
+
+</html>

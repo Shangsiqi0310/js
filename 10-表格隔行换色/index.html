@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+            <tr>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+                <td>123456</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        var trs = document.querySelector('tbody').querySelectorAll('tr');
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function() {
+                this.style.backgroundColor = 'pink';
+            }
+        }
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseout = function() {
+                this.style.backgroundColor = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            height: 60px;
+            width: 60px;
+            position: relative;
+            margin: 100px auto;
+        }
+        
+        i {
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            background-color: pink;
+            top: 0;
+            right: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="images/code.png" />
+        <i></i>
+        <script>
+            var div = document.querySelector('div');
+            var i = document.querySelector('i');
+            i.onclick = function() {
+                div.style.display = 'none';
+            }
+        </script>
+    </div>
+</body>
+
+</html>

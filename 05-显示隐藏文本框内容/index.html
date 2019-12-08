@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+            border: 0;
+            border: 1px solid pink;
+            display: block;
+            height: 30px;
+            width: 200px;
+            color: #999;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="手机" />
+
+    <script>
+        //当聚焦时value值消失(前提是默认输入的,如是自己输入不消失)字体颜色变深
+        //当离焦时如果输入值为空则显示默认值,如不为空显示输入的并字体颜色变暗
+        var inp = document.querySelector('input');
+        inp.onfocus = function() {
+            if (this.value == '手机') {
+                this.value = '';
+            }
+            this.style.color = '#333';
+        }
+        inp.onblur = function() {
+            if (this.value == '') {
+                this.value = '手机';
+            }
+            this.style.color = '#999';
+        }
+    </script>
+</body>
+
+</html>

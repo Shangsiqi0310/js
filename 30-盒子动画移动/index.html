@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .outer {
+            line-height: 50px;
+            width: 50px;
+            background-color: pink;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            cursor: default;
+        }
+        
+        .inner {
+            height: 50px;
+            width: 150px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+    </style>
+    <script src="js/animate.js"></script>
+</head>
+
+<body>
+    <div class="outer">
+        <span>←</span>
+        <div class="inner"></div>
+    </div>
+
+    <script>
+        var outer = document.querySelector('.outer');
+        var inner = document.querySelector('.inner');
+        outer.addEventListener('mouseenter', function() {
+            animate(inner, outer.offsetWidth - inner.offsetWidth, function() {
+                outer.querySelector('span').innerHTML = '→';
+            });
+        })
+        outer.addEventListener('mouseleave', function() {
+            animate(inner, 0, function() {
+                outer.querySelector('span').innerHTML = '←';
+            });
+        })
+    </script>
+</body>
+
+</html>
